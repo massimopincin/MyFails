@@ -24,6 +24,7 @@ def xo(num):
 
 def name():
     x=["",""]
+    print("Welcome! First, insert the players' names:\n")
     x[0]=input("Insert Player 1 name: ")
     x[1]=input("Insert Player 2 name: ")
     return(x)
@@ -52,7 +53,7 @@ def play(res,names):
     print("\n\n\nWelcome to tic tac toe!\n\n{} wins: {}\n{} wins: {}\n\nIf you want to interrupt, write 'exit'. Enjoy!\n\n".format(names[0],res[0],names[1],res[1]))
 
     while c==0 and count<9:
-
+        print("\n------------------------------------------\n------------------------------------------\n------------------------------------------")
         display(b)
 
         count+=1
@@ -62,7 +63,10 @@ def play(res,names):
             if x=="exit":
                 raise Exception("\n\nOk, goodbye.\n\n")
                 break
-            x=int(x)
+            try:
+                x=int(x)
+            except:
+                x=0
             if x not in range(1,10):
                 print("\nInvalid input!\n")
             elif a[x-1]!=0:
